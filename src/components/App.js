@@ -18,8 +18,8 @@ const [poems, setNewPoems] = useState([]);
 
 const [show,setShow]=useState(true)
 
-function addNewPoem(addPoem){
-setNewPoems([...poems, addPoem])
+function addPoem (addPoem) {
+  setNewPoems([...poems, addPoem])
 }
 
   return (
@@ -27,7 +27,7 @@ setNewPoems([...poems, addPoem])
       <div className="sidebar">
         <button onClick={()=> show ? setShow(false) : setShow(true)} >
         Show/hide new poem form </button>
-        {show? <NewPoemForm addNewPoem = {addNewPoem} /> : null}
+        {show? <NewPoemForm addPoem = {addPoem} /> : null}
       </div>
       <PoemsContainer poems={poems} />
     </div>

@@ -1,40 +1,43 @@
 import React, {useState} from "react";
 
-function NewPoemForm({addNewPoem}) {
-  const [titleNew, setTitleNew] = useState("");
-  const [authorNew, setAuthorNew] = useState("");
-  const [contentNew, setContentNew] = useState("");
+function NewPoemForm({ addPoem }) {
 
-function handleSubmit(e) {
-  e.preventDefault();
+const [title, setTitle] = useState("");
+const [author, setAuthor] = useState("");
+const [content, setContent] = useState("");
 
-}
+function handleTitleChange(e) {
+      setTitle(e.target.value);
+    }
+  
+    function handleAuthorChange(e) {
+      setAuthor(e.target.value);
+    }
+      function handleContentChange(e) {
+      setContent(e.target.value);
+    }
+  
+    function handleSubmit(e) {
+      e.preventDefault();
+      addPoem({ title, author, content });
+    }
+  
 
-
-console.log(handleSubmit)
-// addNewPoem({title, author, content});
-
-// let newPoem ={
-//   "title": title,
-//   "content": content,
-//   "author": author
-//   };
-
-
-
-
-  return (
-    <form className="new-poem-form"   >
-      <input placeholder="Title" onChange={(e) => setTitleNew(e.target.value)} />
-      <input placeholder="Author" onChange={(e) => setAuthorNew(e.target.value)} />
-      <textarea placeholder="Write your masterpiece here..." rows={10}
-      onChange={(e) => setContentNew(e.target.value)} />
-      <input type="submit" value="Share your masterpiece" onSubmit={handleSubmit}  />
-    </form>
-  );
-}
-
-export default NewPoemForm;
+    return (
+      <form className="new-poem-form" onSubmit= {handleSubmit} >
+        <input placeholder="Title" onChange={handleTitleChange} />
+        <input placeholder="Author" onChange={handleAuthorChange} />
+        <textarea
+          placeholder="Write your masterpiece here..."
+          rows={10}
+          onChange={handleContentChange}
+        />
+        <input type="submit" value="Share your masterpiece" />
+      </form>
+    );
+  }
+  
+  export default NewPoemForm;
 
 // "id": 1,
 // "title": "The Song About the Song",
