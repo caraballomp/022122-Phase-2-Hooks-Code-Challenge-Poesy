@@ -32,11 +32,9 @@ function handleTitleChange(e) {
         },
         body: JSON.stringify(addPoem)
       })
-      .then(resp=>resp.json())
-      .then(addPoem => {(
-        addPoem(addPoem)
-      )
-      })
+      .then(() =>{
+        console.log('addPoem')
+      });
     }
 
     return (
