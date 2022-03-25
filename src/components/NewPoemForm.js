@@ -16,12 +16,28 @@ function handleTitleChange(e) {
       function handleContentChange(e) {
       setContent(e.target.value);
     }
-  
-    function handleSubmit(e) {
-      e.preventDefault();
-      addPoem({ title, author, content });
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+
+      const addPoem ={
+        title,
+        author,
+        content
+      }
+      fetch("http://localhost:8004/poems", {
+        method: 'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(addPoem)
+      })
+      .then(resp=>resp.json())
+      .then(addPoem => {(
+        addPoem(addPoem)
+      )
+      })
     }
-  
 
     return (
       <form className="new-poem-form" onSubmit= {handleSubmit} >
@@ -35,9 +51,9 @@ function handleTitleChange(e) {
         <input type="submit" value="Share your masterpiece" />
       </form>
     );
-  }
-  
-  export default NewPoemForm;
+    }
+
+    export default NewPoemForm;
 
 // "id": 1,
 // "title": "The Song About the Song",

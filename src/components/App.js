@@ -19,8 +19,9 @@ const [poems, setNewPoems] = useState([]);
 const [show,setShow]=useState(true)
 
 function addPoem (addPoem) {
-  setNewPoems([...poems, addPoem])
-}
+  setNewPoems([...poems, addPoem])}
+
+
 
   return (
     <div className="app">
