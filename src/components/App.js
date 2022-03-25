@@ -18,9 +18,8 @@ const [poems, setNewPoems] = useState([]);
 
 const [show,setShow]=useState(true)
 
-function addPoem (addPoem) {
-  setNewPoems([...poems, addPoem])}
-
+function addPoem (newPoem) {
+  setNewPoems([...poems, newPoem])}
 
 
   return (

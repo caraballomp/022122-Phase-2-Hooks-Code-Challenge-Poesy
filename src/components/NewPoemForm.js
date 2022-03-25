@@ -20,22 +20,22 @@ function handleTitleChange(e) {
     const handleSubmit = (e) => {
       e.preventDefault()
 
-      const addPoem ={
+      const formData ={
         title,
         author,
-        content
+        content,
       }
       fetch("http://localhost:8004/poems", {
         method: 'POST',
         headers:{
           'Content-Type':'application/json'
         },
-        body: JSON.stringify(addPoem)
+        body: JSON.stringify(formData)
       })
-      .then(() =>{
-        console.log('addPoem')
-      });
-    }
+      .then((r) => r.json())
+      .then(newPoem => {addPoem(newPoem)})
+      };
+    
 
     return (
       <form className="new-poem-form" onSubmit= {handleSubmit} >
